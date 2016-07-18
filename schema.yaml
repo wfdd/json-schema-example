@@ -1,0 +1,17 @@
+type: object
+properties:
+  events:
+    type: array
+    items:
+    - allOf:
+      - $ref: http://www.popoloproject.com/schemas/event.json#
+      - oneOf:
+        - properties:
+            classification:
+              enum: ["general election"]
+          required:
+          - start_date
+          - end_date
+        - properties:
+            classification:
+              enum: ["legislative period"]
